@@ -1,0 +1,72 @@
+
+input_schema:
+  - name
+  - email
+  - query
+  - priority
+  - ticket_id
+
+stages:
+  - name: INTAKE
+    mode: deterministic
+    abilities:
+      - accept_payload: COMMON
+
+  - name: UNDERSTAND
+    mode: deterministic
+    abilities:
+      - parse_request_text: COMMON
+      - extract_entities: ATLAS
+
+  - name: PREPARE
+    mode: deterministic
+    abilities:
+      - normalize_fields: COMMON
+      - enrich_records: ATLAS
+      - add_flags_calculations: COMMON
+
+  - name: ASK
+    mode: deterministic
+    abilities:
+      - clarify_question: ATLAS
+
+  - name: WAIT
+    mode: deterministic
+    abilities:
+      - extract_answer: ATLAS
+      - store_answer: COMMON
+
+  - name: RETRIEVE
+    mode: deterministic
+    abilities:
+      - knowledge_base_search: ATLAS
+      - store_data: COMMON
+
+  - name: DECIDE
+    mode: non-deterministic
+    abilities:
+      - solution_evaluation: COMMON
+      - escalation_decision: ATLAS
+      - update_payload: COMMON
+
+  - name: UPDATE
+    mode: deterministic
+    abilities:
+      - update_ticket: ATLAS
+      - close_ticket: ATLAS
+
+  - name: CREATE
+    mode: deterministic
+    abilities:
+      - response_generation: COMMON
+
+  - name: DO
+    mode: deterministic
+    abilities:
+      - execute_api_calls: ATLAS
+      - trigger_notifications: ATLAS
+
+  - name: COMPLETE
+    mode: deterministic
+    abilities:
+      - output_payload: COMMON
