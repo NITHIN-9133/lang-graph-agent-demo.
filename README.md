@@ -3,8 +3,7 @@
 ## Screenshots of Execution
 
 ### Input Config & JSON
-
-<img width="754" height="394" alt="123445" src="https://github.com/user-attachments/assets/683f35e4-8d2e-46af-9198-1783e4eed3d9" />
+<img width="775" height="170" alt="18282829" src="https://github.com/user-attachments/assets/7eea2ead-2240-4ff4-871f-ef2906040555" />
 <img width="737" height="362" alt="2222222" src="https://github.com/user-attachments/assets/8ca08eea-7518-4e48-b4ad-941cf35dd0a9" />
 
 ### Execution Logs
